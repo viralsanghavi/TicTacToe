@@ -1,0 +1,72 @@
+body {
+  transition: all ease-in 1s;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  flex: 0.4;
+}
+
+.box {
+  width: auto;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  font-size: 35px;
+  color: #ffffff;
+}
+
+.winmessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0.3;
+}
+.play__info > h3 {
+  flex: 0.1;
+}
+.play_winmessage{
+  flex: 0.1;
+}
+.play__info > button {
+  flex: 0.3;
+}
+
+button {
+  border-radius: 41px !important;
+}
+
+.play__scoreButton {
+  background: white !important;
+  color: black !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+}
+
+.play__grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 20px;
+  border-radius: 20px;
+  height: 80vh;
+}
+
+.play__setting {
+  flex: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
