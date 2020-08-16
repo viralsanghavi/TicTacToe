@@ -20,6 +20,9 @@ function App() {
           <Route exact path="/">
             <StartGame />
           </Route>
+          <Route exact path={'*'} >
+            <h1>Page Not found</h1>
+          </Route>
         </Switch>
       </BrowserRouter>
 

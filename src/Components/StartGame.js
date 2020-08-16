@@ -13,8 +13,8 @@ const StartGame = () => {
             <div className="startgame__container">
                 <div className="startgame__banner">
 
-                    <ClearIcon className="startgame__bannerIconBlue" />
-                    <RadioButtonUncheckedIcon className="startgame__bannerIconOrange" />
+                    <img src={require('../assets/cross.svg')} className="startgame__bannerIconBlue" />
+                    <img src={require('../assets/circle.svg')} className="startgame__bannerIconOrange" />
                 </div>
                 <h3>Choose your Play Mode</h3>
                 <div className="startgame__button">
