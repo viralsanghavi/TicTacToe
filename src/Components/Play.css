@@ -14,6 +14,7 @@ body {
   height: 90px;
   display: flex;
   justify-content: center;
+  border: 1px solid black;
   align-items: center;
 }
 .icon {
@@ -36,11 +37,11 @@ body {
 .play__info > h3 {
   flex: 0.1;
 }
-.play_winmessage{
+.play_winmessage {
   flex: 0.1;
 }
 .play__info > button {
-  flex: 0.3;
+  flex: 0.5;
 }
 
 button {
@@ -60,6 +61,7 @@ button {
   justify-content: space-between;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 20px;
+  background: white;
   border-radius: 20px;
   height: 80vh;
 }
@@ -69,4 +71,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+.play {
+  background-color: #d4d4d4;
 }

@@ -22,11 +22,11 @@ const SelectSide = () => {
                 <div className="selectSide__banner">
                     <div className="selectSide__radio">
                         <input type="radio" id="cross" name="radio-group" value="cross" checked={icon === "cross" ? true : false} onClick={e => setIcon(e.target.value)} />
-                        <label htmlFor="cross"><ClearIcon className="startgame__bannerIconBlue" /></label>
+                        <label htmlFor="cross"><img src={require('./assets/cross.svg')} className="startgame__bannerIconBlue" /></label>
                     </div>
                     <div className="selectSide__radio">
                         <input type="radio" id="circle" name="radio-group" checked={icon === "circle" ? true : false} onClick={e => setIcon(e.target.value)} value="circle" />
-                        <label htmlFor="circle"><RadioButtonUncheckedIcon className="startgame__bannerIconOrange" /></label>
+                        <label htmlFor="circle"><img src={require('./assets/circle.svg')} className="startgame__bannerIconOrange" /></label>
                     </div>
                 </div>
                 <div className="startgame__button">

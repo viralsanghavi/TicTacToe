@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Play.css';
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { Card, CardBody, Container, Col, Row, Button } from 'reactstrap'
 import { Icons } from './Icons';
 import { IconButton } from '@material-ui/core';
 import { useStateValue } from './StateProvider';
+import { Redirect } from 'react-router-dom';
 
 const itemArray = new Array(9).fill("empty");
 
@@ -16,15 +17,24 @@ const Play = () => {
     const [{ start }] = useStateValue()
     const [isCross, setIsCross] = useState(start === "cross" ? true : false);
     const [winMessage, setWinMessage] = useState("");
-
+    const [playerScore, setPlayerScore] = useState(0)
+    const [aiScore, setAiScore] = useState(0)
     const reload = () => {
         // setIsCross(false)
         setWinMessage("")
         itemArray.fill("empty", 0, 9)
     }
-    // const plusScore = () => setScore(score + 1)
-
+    useEffect(() => {
+        plusScore()
+    }, [winMessage])
+    const plusScore = () => {
+        if (winMessage !== "" && winMessage !== "Draw") {
+            winMessage === "cross wins" && start === "cross" || winMessage === "circle wins" && start === "circle" ?
+                setPlayerScore(playerScore + 1) : setAiScore(aiScore + 1)
+        }
+    }
     const checkIsWinner = () => {
+
         if (
             itemArray[0] !== "empty" &&
             itemArray[0] === itemArray[1] &&
@@ -108,43 +118,50 @@ const Play = () => {
     }
 
     return (
-        <Container className="p-5">
-            <ToastContainer position="bottom-center" />
-            <Row>
-                <Col md={6} className="offset-md-3 play__grid">
-                    <div className="play__info">
-                        <h3>Viral</h3>
-                        <Button className="play__scoreButton" > 0 - 0 </Button>
-                        <h3>AI</h3>
-                    </div>
-                    <div className="play_winmessage">
-                        {winMessage ? (<div className="mb-2 winmessage mt-2">
-                            {/* h1.text-primary.text-uppercase.text-center */}
-                            <h3 className="text-uppercase text-center">
-                                {winMessage}
-                            </h3>
-                            <button className="btn btn-primary" onClick={reload}>Restart</button>
-                        </div>)
-                            : ""}
-                    </div>
-                    <div className="grid">
-                        {itemArray.map((item, index) =>
-                            (
-                                <Card onClick={() => changeItem(index)} key={index}>
-                                    <CardBody className="box">
-                                        {item !== "empty" ? <Icons name={item} /> : ""}
-                                    </CardBody>
-                                </Card>
-                            ))}
-                    </div>
-                    <div className="play__setting">
-                        <IconButton className="startgame__buttonWhite" color="primary">
-                            <SettingsIcon />
-                        </IconButton>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
+        <div className="play">
+            <Container className="p-5">
+                <ToastContainer position="bottom-center" />
+                {
+                    start === null &&
+                    <Redirect to="/select" />
+                }
+
+                <Row>
+                    <Col md={6} className="offset-md-3 play__grid">
+                        <div className="play__info">
+                            <h3>VIRAL</h3>
+                            <Button className="play__scoreButton" > {playerScore} - {aiScore} </Button>
+                            <h3>AI</h3>
+                        </div>
+                        <div className="play_winmessage">
+                            {winMessage ? (<div className="mb-2 winmessage mt-2">
+                                {/* h1.text-primary.text-uppercase.text-center */}
+                                <h3 className="text-uppercase text-center">
+                                    {winMessage}
+                                </h3>
+                                <button className="btn btn-primary" onClick={reload}>Restart</button>
+                            </div>)
+                                : ""}
+                        </div>
+                        <div className="grid">
+                            {itemArray.map((item, index) =>
+                                (
+                                    <Card onClick={() => changeItem(index)} key={index}>
+                                        <CardBody className="box">
+                                            {item !== "empty" ? <Icons name={item} /> : ""}
+                                        </CardBody>
+                                    </Card>
+                                ))}
+                        </div>
+                        <div className="play__setting">
+                            <IconButton className="startgame__buttonWhite" color="primary">
+                                <SettingsIcon />
+                            </IconButton>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

@@ -1,10 +1,12 @@
 export const initialState = {
     start: null,
+    message: ''
 }
 
 
 export const actionType = {
-    SET_SELECT: "SET_SELECT"
+    SET_SELECT: "SET_SELECT",
+    SET_WINNER: 'SET_WINNER'
 }
 
 const reducer = (state, action) => {
@@ -14,6 +16,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 start: action.start
+            }
+        case actionType.SET_WINNER:
+            return {
+                ...state,
+                message: action.message
             }
         default:
             return state

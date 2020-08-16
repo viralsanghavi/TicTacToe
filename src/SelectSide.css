@@ -44,3 +44,21 @@ label {
 .selectSide__radio > input + label {
   opacity: 0.2;
 }
+
+#circle {
+  position: relative;
+  top: 23px;
+}
+
+*{
+  transition: all 500ms;
+}
+
+@media(max-width:535px){
+  .selectSide__container{
+    padding: 40px;
+  }
+  .startgame__container{
+    padding: 75px;
+  }
+}
