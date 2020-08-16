@@ -14,7 +14,7 @@ body {
   height: 90px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-items: center;
 }
 .icon {
@@ -42,6 +42,11 @@ body {
 }
 .play__info > button {
   flex: 0.5;
+}
+h3 {
+  font-size: 25px;
+  padding: 4px;
+  color: #162050 !important;
 }
 
 button {

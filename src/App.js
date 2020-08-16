@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import StartGame from './Components/StartGame';
 import SelectSide from './SelectSide';
 import Play from './Components/Play';
@@ -21,7 +21,10 @@ function App() {
             <StartGame />
           </Route>
           <Route exact path={'*'} >
-            <h1>Page Not found</h1>
+            <h1 className="text-center">Page Not found</h1>
+            <Link to="/">
+              <button className="btn btn-primary">Home</button>
+            </Link>
           </Route>
         </Switch>
       </BrowserRouter>
